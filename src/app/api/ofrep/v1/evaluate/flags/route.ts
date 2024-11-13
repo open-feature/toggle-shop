@@ -29,7 +29,7 @@ if (process.env.FLAGD_OFFLINE_FLAG_SOURCE_PATH) {
 }
 
 export async function POST(request: Request) {
-  const context = await request.json();
+  const { context } = await request.json();
 
   // We have to map these names to be compatible with OFREP
   const flags = flagdCore

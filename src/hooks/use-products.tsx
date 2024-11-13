@@ -6,10 +6,10 @@ import { getBaseUrl } from "@/libs/url";
 import { tanstackMetaToHeader } from "@/libs/open-feature/evaluation-context";
 
 export function useProducts() {
-  console.log("fetching products");
   const { data } = useSuspenseQuery({
     queryKey: ["products"],
     queryFn: async ({ meta }): Promise<Product[]> => {
+      console.log("fetching products");
       const res = await fetch(getBaseUrl() + "/api/products", {
         cache: "no-store",
         headers: tanstackMetaToHeader(meta),
@@ -24,10 +24,10 @@ export function useProducts() {
 }
 
 export function useProduct(id: string) {
-  console.log(`fetching product ${id}`);
   const { data } = useSuspenseQuery({
     queryKey: ["products", id],
     queryFn: async ({ meta }): Promise<Product> => {
+      console.log(`fetching product ${id}`);
       const res = await fetch(getBaseUrl() + `/api/products/${id}`, {
         cache: "no-store",
         headers: tanstackMetaToHeader(meta),

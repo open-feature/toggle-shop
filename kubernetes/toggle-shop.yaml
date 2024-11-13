@@ -14,6 +14,19 @@ spec:
           'on': true
           'off': false
         defaultVariant: 'on'
+      sticky-header:
+        state: ENABLED
+        variants:
+          'on': true
+          'off': false
+        defaultVariant: 'off'
+        # targeting:
+        #   if:
+        #     - "==":
+        #       - var: size
+        #       - sm
+        #     - 'on'
+        #     - 'off'
 ---
 # Flags for our backend application
 apiVersion: core.openfeature.dev/v1beta1
