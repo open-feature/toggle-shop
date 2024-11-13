@@ -2,19 +2,22 @@
 
 import Link from "next/link";
 import { ShoppingCart, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { useCart } from "@/hooks/use-cart";
+import { useFlag } from "@openfeature/react-sdk";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useCart();
+  const { value: stickyHeader } = useFlag('sticky-header', false);
+  const headerStyle: CSSProperties = stickyHeader ? { position: 'sticky', top: 0, zIndex: 1000 } : {};
   const cartItemsCount = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
   );
 
   return (
-    <header className="bg-white shadow-md">
+    <header style={headerStyle} className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">

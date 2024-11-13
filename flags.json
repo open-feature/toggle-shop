@@ -4,32 +4,43 @@
     "offer-free-shipping": {
       "state": "ENABLED",
       "variants": {
-        "true": true,
-        "false": false
+        "on": true,
+        "off": false
       },
-      "defaultVariant": "true"
+      "defaultVariant": "on"
+    },
+    "sticky-header": {
+      "state": "ENABLED",
+      "variants": {
+        "on": true,
+        "off": false
+      },
+      "defaultVariant": "on",
+      "targeting": {
+        "if": [{ "==": [{ "var": "size" }, "sm"]}, "on", "off" ]
+      }
     },
     "use-distributed-db": {
       "state": "ENABLED",
       "variants": {
-        "true": true,
-        "false": false
+        "on": true,
+        "off": false
       },
       "targeting": {
         "fractional": [
-          ["true", 0],
-          ["false", 100]
+          ["on", 0],
+          ["off", 100]
         ]
       },
-      "defaultVariant": "false"
+      "defaultVariant": "off"
     },
     "use-secure-protocol": {
       "state": "ENABLED",
       "variants": {
-        "true": true,
-        "false": false
+        "on": true,
+        "off": false
       },
-      "defaultVariant": "false"
+      "defaultVariant": "off"
     }
   }
 }

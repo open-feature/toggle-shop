@@ -23,13 +23,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ToggleShop leverages a number of feature flags for various technical and business-related use cases.
 
-| Feature Flag        | Type    | Default Variant | Variants    |
-| ------------------- | ------- | --------------- | ----------- |
-| offer-free-shipping | boolean | true            | true, false |
-| use-distributed-db  | boolean | false           | true, false |
-| use-secure-protocol | boolean | false           | true, false |
+| Feature Flag        | Type    | Default Variant | Variants |
+| ------------------- | ------- | --------------- | -------- |
+| offer-free-shipping | boolean | on              | on, off  |
+| sticky-header       | boolean | off             | on, off  |
+| use-distributed-db  | boolean | off             | on, off  |
+| use-secure-protocol | boolean | off             | on, off  |
 
-> The flag configuration can be found [here](./flags.json).
+> The flag configuration for local development can be found [here](./flags.json).
 
 ### Free Shipping
 

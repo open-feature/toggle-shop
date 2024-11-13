@@ -12,6 +12,7 @@ import { useEffect, useRef } from "react";
 import { ClientEventHook } from "@/libs/open-feature/client-event-hook";
 import { getBaseUrl } from "@/libs/url";
 import { ATTR_FEATURE_FLAG_CONTEXT_ID } from "@/libs/open-feature/proposed-attributes";
+import { useSize } from "@/hooks/use-size";
 
 class OFREPWebEventProvider extends OFREPWebProvider implements Provider {
   metadata = { name: "OREFP" };
@@ -47,6 +48,13 @@ export function OpenFeatureProvider({
   children: React.ReactNode;
 }) {
   const hasInitialized = useRef(false);
+  const size = useSize();
+
+  useEffect(() => {
+    if (hasInitialized.current) {
+      OpenFeature.setContext({ ...OpenFeature.getContext(), size });
+    }
+  }, [size])
 
   useEffect(() => {
     if (!hasInitialized.current) {
@@ -59,7 +67,7 @@ export function OpenFeatureProvider({
           // A real app may want to only update on page load.
           pollInterval: 5000,
         }),
-        context
+        {...context, size}
       );
       hasInitialized.current = true;
     }
