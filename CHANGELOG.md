@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/open-feature/toggle-shop/compare/v0.1.0...v0.2.0) (2024-11-13)
+
+
+### ✨ New Features
+
+* add new header flag, minor fixes ([#12](https://github.com/open-feature/toggle-shop/issues/12)) ([f9dd4f8](https://github.com/open-feature/toggle-shop/commit/f9dd4f82f59fd93eb65183a1e923532bfea21987))
+
 ## [0.1.0](https://github.com/open-feature/toggle-shop/compare/v0.0.2...v0.1.0) (2024-11-08)
 
 
