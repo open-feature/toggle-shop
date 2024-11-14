@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/open-feature/toggle-shop/compare/v0.2.2...v0.2.3) (2024-11-14)
+
+
+### 🐛 Bug Fixes
+
+* build ([5a76d58](https://github.com/open-feature/toggle-shop/commit/5a76d58438ee2e59aea4a3dfb4223fa1dbbc7079))
+
 ## [0.2.2](https://github.com/open-feature/toggle-shop/compare/v0.2.1...v0.2.2) (2024-11-14)
 
 
