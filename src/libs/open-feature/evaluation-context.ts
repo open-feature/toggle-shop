@@ -2,16 +2,12 @@ import type { EvaluationContext } from "@openfeature/core";
 
 const TARGETING_KEY_HEADER = "x-targeting-key";
 
-export function tanstackMetaToHeader(
-  meta?: EvaluationContext
+export function setTargetingKeyHeader(
+  targetingKey: string
 ): Record<string, string> {
-  if (meta && meta.targetingKey) {
-    return {
-      [TARGETING_KEY_HEADER]: meta.targetingKey,
-    };
-  }
-
-  return {};
+  return {
+    [TARGETING_KEY_HEADER]: targetingKey,
+  };
 }
 
 export function headerToEvaluationContext(

@@ -26,7 +26,7 @@ spec:
         #       - var: size
         #       - sm
         #     - 'on'
-        #     - 'off'
+        #     - 
 ---
 # Flags for our backend application
 apiVersion: core.openfeature.dev/v1beta1

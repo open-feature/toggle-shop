@@ -1,15 +1,16 @@
 "use client";
 
-import { useMemo, useReducer } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowLeft, ArrowRight, Minus, Plus, X } from "lucide-react";
-import { useCart } from "@/hooks/use-cart";
 import Header from "@/components/Header";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { tanstackMetaToHeader } from "@/libs/open-feature/evaluation-context";
+import { useCart } from "@/hooks/use-cart";
+import { setTargetingKeyHeader } from "@/libs/open-feature/evaluation-context";
+import { TARGETING_KEY } from "@/libs/targeting-key";
 import { useFlag, useTrack } from "@openfeature/react-sdk";
+import { useMutation } from "@tanstack/react-query";
+import { ArrowLeft, ArrowRight, Minus, Plus, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useMemo, useReducer } from "react";
 
 export default function Checkout() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
@@ -169,16 +170,13 @@ function CheckoutForm() {
   const router = useRouter();
   const { cartItems, clearCart } = useCart();
 
-  const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: () => {
       return fetch("/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          ...tanstackMetaToHeader(
-            queryClient.getDefaultOptions().mutations?.meta
-          ),
+          ...setTargetingKeyHeader(TARGETING_KEY),
         },
         body: JSON.stringify({
           items: cartItems,

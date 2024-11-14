@@ -64,15 +64,9 @@ jobs:
         uses: docker/metadata-action@v5 
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=raw,value=latest,enable={{is_default_branch}}
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
+          tags: 
+            - ${{ needs.release-please.outputs.release_tag_name }}
+            - latest
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
