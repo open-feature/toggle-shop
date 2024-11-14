@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/open-feature/toggle-shop/compare/v0.2.3...v0.2.4) (2024-11-14)
+
+
+### 🧹 Chore
+
+* fix rp versioing ([#19](https://github.com/open-feature/toggle-shop/issues/19)) ([742a855](https://github.com/open-feature/toggle-shop/commit/742a855cdc90b3bf4959eda9f60143eed4321926))
+
 ## [0.2.3](https://github.com/open-feature/toggle-shop/compare/v0.2.2...v0.2.3) (2024-11-14)
 
 
