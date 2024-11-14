@@ -3,7 +3,8 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import type { Product } from "@/types/product";
 import { getBaseUrl } from "@/libs/url";
-import { tanstackMetaToHeader } from "@/libs/open-feature/evaluation-context";
+import { setTargetingKeyHeader } from "@/libs/open-feature/evaluation-context";
+import { TARGETING_KEY } from "@/libs/targeting-key";
 
 export function useProducts() {
   const { data } = useSuspenseQuery({
@@ -12,7 +13,7 @@ export function useProducts() {
       console.log("fetching products");
       const res = await fetch(getBaseUrl() + "/api/products", {
         cache: "no-store",
-        headers: tanstackMetaToHeader(meta),
+        headers: setTargetingKeyHeader(TARGETING_KEY),
       });
       if (!res.ok) {
         throw new Error("Failed to fetch products");
@@ -30,7 +31,7 @@ export function useProduct(id: string) {
       console.log(`fetching product ${id}`);
       const res = await fetch(getBaseUrl() + `/api/products/${id}`, {
         cache: "no-store",
-        headers: tanstackMetaToHeader(meta),
+        headers: setTargetingKeyHeader(TARGETING_KEY),
       });
       if (!res.ok) {
         throw new Error("Failed to fetch products");

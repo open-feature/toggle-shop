@@ -17,7 +17,7 @@
       },
       "defaultVariant": "on",
       "targeting": {
-        "if": [{ "==": [{ "var": "size" }, "sm"]}, "on", "off" ]
+        "if": [{ "==": [{ "var": "size" }, "sm"]}, "on", null ]
       }
     },
     "use-distributed-db": {
