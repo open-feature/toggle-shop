@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2](https://github.com/open-feature/toggle-shop/compare/v0.2.1...v0.2.2) (2024-11-14)
+
+
+### 🐛 Bug Fixes
+
+* inconsistent targeting key ([#16](https://github.com/open-feature/toggle-shop/issues/16)) ([0d09d2e](https://github.com/open-feature/toggle-shop/commit/0d09d2ee559356d441402d977e699fabcd4071e8))
+* release ([d955743](https://github.com/open-feature/toggle-shop/commit/d955743b44c3ed7589914fa641396aa76087269a))
+
 ## [0.2.1](https://github.com/open-feature/toggle-shop/compare/v0.2.0...v0.2.1) (2024-11-14)
 
 
