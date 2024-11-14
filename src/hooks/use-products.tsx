@@ -9,7 +9,7 @@ import { TARGETING_KEY } from "@/libs/targeting-key";
 export function useProducts() {
   const { data } = useSuspenseQuery({
     queryKey: ["products"],
-    queryFn: async ({ meta }): Promise<Product[]> => {
+    queryFn: async (): Promise<Product[]> => {
       console.log("fetching products");
       const res = await fetch(getBaseUrl() + "/api/products", {
         cache: "no-store",
@@ -27,7 +27,7 @@ export function useProducts() {
 export function useProduct(id: string) {
   const { data } = useSuspenseQuery({
     queryKey: ["products", id],
-    queryFn: async ({ meta }): Promise<Product> => {
+    queryFn: async (): Promise<Product> => {
       console.log(`fetching product ${id}`);
       const res = await fetch(getBaseUrl() + `/api/products/${id}`, {
         cache: "no-store",
