@@ -4,6 +4,7 @@ import { CartProvider } from "@/providers/cart";
 import { ReactQueryProvider } from "@/providers/react-query";
 import { OpenFeatureProvider } from "@/providers/open-feature";
 import { TARGETING_KEY } from "@/libs/targeting-key";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <ReactQueryProvider>
           <OpenFeatureProvider context={{ targetingKey: TARGETING_KEY }}>
-            <CartProvider>{children}</CartProvider>
+            <CartProvider>
+              <div className="min-h-screen bg-gray-100">
+                <Header />
+                <main>{children}</main>
+              </div>
+            </CartProvider>
           </OpenFeatureProvider>
         </ReactQueryProvider>
       </body>

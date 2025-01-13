@@ -1,3 +1,4 @@
+import { sendTrackEvent } from "@/libs/open-feature/send-tracking-event";
 import { FlagdProvider } from "@openfeature/flagd-provider";
 import {
   EvaluationContext,
@@ -5,9 +6,12 @@ import {
   Provider,
   TrackingEventDetails,
 } from "@openfeature/server-sdk";
-import { ServerEventHook } from "@/libs/open-feature/server-event-hook";
-import { sendTrackEvent } from "@/libs/open-feature/send-tracking-event";
-import { ATTR_FEATURE_FLAG_CONTEXT_ID } from "./libs/open-feature/proposed-attributes";
+import { events } from "@opentelemetry/api-events";
+import {
+  ATTR_FEATURE_FLAG_CONTEXT_ID,
+  EVENT_NAME_FEATURE_FLAG_EVALUATION,
+} from "./libs/open-feature/proposed-attributes";
+import { TelemetryHook } from "./libs/open-feature/telemetry-hook";
 
 console.log("registering the OpenFeature provider");
 
@@ -29,5 +33,14 @@ class FlagdEventProvider extends FlagdProvider implements Provider {
   }
 }
 
-OpenFeature.addHooks(new ServerEventHook("feature_flag"));
+const eventLogger = events.getEventLogger("feature_flag");
+
+OpenFeature.addHooks(
+  new TelemetryHook((event) => {
+    eventLogger.emit({
+      name: EVENT_NAME_FEATURE_FLAG_EVALUATION,
+      attributes: event,
+    });
+  })
+);
 OpenFeature.setProvider(new FlagdEventProvider({ resolverType: "in-process" }));

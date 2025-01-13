@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Header from "@/components/Header";
 import { ArrowRight } from "lucide-react";
 import { Suspense } from "react";
 import ProductGrid from "@/components/ProductGrid";
@@ -11,18 +10,14 @@ import Banner from "@/components/Banner";
 import heroImage from "../../public/img/hero.jpg";
 
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useFlag } from "@openfeature/react-sdk";
+import { useSuspenseFlag } from "@openfeature/react-sdk";
 
 export default function Home() {
   const [parent] = useAutoAnimate();
-  const { value: showBanner, isAuthoritative } = useFlag(
-    "offer-free-shipping",
-    false
-  );
+  const { value: showBanner } = useSuspenseFlag("offer-free-shipping", false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Header />
+    <>
       <div className="relative bg-gray-900 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -72,11 +67,11 @@ export default function Home() {
         </div>
       </div>
       <div ref={parent}>
-        {isAuthoritative && showBanner && (
+        {showBanner && (
           <Banner mobileMessage="Free shipping on orders over $50." />
         )}
       </div>
-      <main>
+      <div>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
             <div className="flex items-center justify-between mb-6">
@@ -99,7 +94,7 @@ export default function Home() {
             </Suspense>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }

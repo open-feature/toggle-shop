@@ -12,7 +12,7 @@ export function ProductList() {
       {products.map((product) => (
         <Link
           key={product.id}
-          href={`/product/${product.id}`}
+          href={`/products/${product.id}`}
           className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
         >
           <Image
