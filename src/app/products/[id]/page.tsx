@@ -18,13 +18,13 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="md:flex">
-      <div className="md:flex-shrink-0">
+      <div className="md:flex-shrink-0 p-8">
         <Image
           src={product.image}
           alt={product.name}
           width={400}
           height={400}
-          className="h-48 w-full object-cover md:w-48"
+          className="h-48 w-full object-cover md:w-48 rounded-md"
         />
       </div>
       <div className="p-8">
