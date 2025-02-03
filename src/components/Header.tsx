@@ -9,8 +9,14 @@ import { useFlag } from "@openfeature/react-sdk";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useCart();
-  const { value: stickyHeader } = useFlag('sticky-header', false);
-  const headerStyle: CSSProperties = stickyHeader ? { position: 'sticky', top: 0, zIndex: 1000 } : {};
+  const { value: stickyHeader, isAuthoritative } = useFlag(
+    "sticky-header",
+    false
+  );
+  const headerStyle: CSSProperties =
+    stickyHeader && isAuthoritative
+      ? { position: "sticky", top: 0, zIndex: 1000 }
+      : {};
   const cartItemsCount = cartItems.reduce(
     (total, item) => total + item.quantity,
     0

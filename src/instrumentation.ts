@@ -49,21 +49,23 @@ if (process.env.OTLP_LOGS_URL) {
 }
 
 export function register() {
-  registerOTel({
-    serviceName: "toggle-shop",
-    traceExporter,
-    metricReader,
-    logRecordProcessor,
-  });
-
-  console.log("setting global log provider");
-  events.setGlobalEventLoggerProvider(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    new EventLoggerProvider(logs.getLoggerProvider() as any)
-  );
-
   if (process.env.NEXT_RUNTIME === "nodejs") {
+    registerOTel({
+      serviceName: "toggle-shop",
+      traceExporter,
+      metricReader,
+      logRecordProcessor,
+    });
+
+    console.log("setting global log provider");
+    events.setGlobalEventLoggerProvider(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      new EventLoggerProvider(logs.getLoggerProvider() as any)
+    );
+
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     require("./register.openfeature");
+  } else {
+    console.log("skipping instrumentation registration");
   }
 }

@@ -9,7 +9,7 @@ import {
 } from "@openfeature/react-sdk";
 import { OFREPWebProvider } from "@openfeature/ofrep-web-provider";
 import { useEffect, useRef } from "react";
-import { ClientEventHook } from "@/libs/open-feature/client-event-hook";
+import { TelemetryHook } from "@/libs/open-feature/telemetry-hook";
 import { getBaseUrl } from "@/libs/url";
 import { ATTR_FEATURE_FLAG_CONTEXT_ID } from "@/libs/open-feature/proposed-attributes";
 import { useSize } from "@/hooks/use-size";
@@ -54,12 +54,22 @@ export function OpenFeatureProvider({
     if (hasInitialized.current) {
       OpenFeature.setContext({ ...OpenFeature.getContext(), size });
     }
-  }, [size])
+  }, [size]);
 
   useEffect(() => {
     if (!hasInitialized.current) {
       console.log("initializing OFREP provider");
-      OpenFeature.addHooks(new ClientEventHook());
+      OpenFeature.addHooks(
+        new TelemetryHook((event) => {
+          fetch(getBaseUrl() + "/api/events/evaluate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(event),
+          }).catch(console.error);
+        })
+      );
       OpenFeature.setProvider(
         new OFREPWebEventProvider({
           baseUrl: "/api",
@@ -67,7 +77,7 @@ export function OpenFeatureProvider({
           // A real app may want to only update on page load.
           pollInterval: 5000,
         }),
-        {...context, size}
+        { ...context, size }
       );
       hasInitialized.current = true;
     }

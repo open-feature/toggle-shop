@@ -42,5 +42,9 @@
       },
       "defaultVariant": "off"
     }
+  },
+  "metadata": {
+    "flagSetId": "toggle-shop/dev",
+    "version": "1"
   }
 }
