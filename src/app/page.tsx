@@ -17,7 +17,21 @@ export default async function Home() {
   const client = OpenFeature.getClient();
   const { value: showBanner } = await client.getBooleanDetails(
     "offer-free-shipping",
-    false
+    false,
+    undefined,
+    {
+      hooks: [
+        {
+          finally() {
+            if (typeof window !== "undefined") {
+              console.log("This is the window object");
+            } else {
+              console.log("This is not the window object");
+            }
+          },
+        },
+      ],
+    }
   );
 
   return (
