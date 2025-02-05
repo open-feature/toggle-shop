@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -9,12 +7,18 @@ import ProductGridSkeleton from "@/components/ProductGridSkeleton";
 import Banner from "@/components/Banner";
 import heroImage from "../../public/img/hero.jpg";
 
-import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useSuspenseFlag } from "@openfeature/react-sdk";
+// import { useAutoAnimate } from "@formkit/auto-animate/react";
+// import { useSuspenseOfferFreeShipping } from "@/generated/react-hooks";
+import { OpenFeature } from "@openfeature/server-sdk";
 
-export default function Home() {
-  const [parent] = useAutoAnimate();
-  const { value: showBanner } = useSuspenseFlag("offer-free-shipping", false);
+export default async function Home() {
+  // const [parent] = useAutoAnimate();
+  // const { value: showBanner } = useSuspenseOfferFreeShipping({});
+  const client = OpenFeature.getClient();
+  const { value: showBanner } = await client.getBooleanDetails(
+    "offer-free-shipping",
+    false
+  );
 
   return (
     <>
@@ -66,7 +70,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div ref={parent}>
+      <div>
         {showBanner && (
           <Banner mobileMessage="Free shipping on orders over $50." />
         )}
