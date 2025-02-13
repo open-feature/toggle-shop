@@ -6,7 +6,10 @@
     "dev": "cross-env FLAGD_OFFLINE_FLAG_SOURCE_PATH=./flags.json next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-flags:react": "docker run -it -v $(pwd):/local -w /local ghcr.io/open-feature/cli:0.1.10 generate react --flag_manifest_path ./flags.json --output_path ./src/generated/react-hooks.ts",
+    "generate-flags:node": "echo \"flag generation isn't supported for Node.js.\"",
+    "generate-flags": "npm run generate-flags:react && npm run generate-flags:node && echo \"Flags generated.\""
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",

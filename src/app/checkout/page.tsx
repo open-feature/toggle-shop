@@ -1,9 +1,10 @@
 "use client";
 
+import { useSuspenseOfferFreeShipping } from "@/generated/react-hooks";
 import { useCart } from "@/hooks/use-cart";
 import { setTargetingKeyHeader } from "@/libs/open-feature/evaluation-context";
 import { TARGETING_KEY } from "@/libs/targeting-key";
-import { useSuspenseFlag, useTrack } from "@openfeature/react-sdk";
+import { useTrack } from "@openfeature/react-sdk";
 import { useMutation } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, Minus, Plus, X } from "lucide-react";
 import Image from "next/image";
@@ -14,7 +15,7 @@ import { useMemo, useReducer } from "react";
 export default function Checkout() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const { track } = useTrack();
-  const { value: freeShipping } = useSuspenseFlag("offer-free-shipping", false);
+  const { value: freeShipping } = useSuspenseOfferFreeShipping({});
 
   useMemo(() => {
     track("visit_checkout");
