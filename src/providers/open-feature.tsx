@@ -6,12 +6,12 @@ import {
   OpenFeature,
   Provider,
   TrackingEventDetails,
+  TelemetryAttribute,
 } from "@openfeature/react-sdk";
 import { OFREPWebProvider } from "@openfeature/ofrep-web-provider";
 import { useEffect, useRef } from "react";
 import { TelemetryHook } from "@/libs/open-feature/telemetry-hook";
 import { getBaseUrl } from "@/libs/url";
-import { ATTR_FEATURE_FLAG_CONTEXT_ID } from "@/libs/open-feature/proposed-attributes";
 import { useSize } from "@/hooks/use-size";
 
 class OFREPWebEventProvider extends OFREPWebProvider implements Provider {
@@ -31,7 +31,7 @@ class OFREPWebEventProvider extends OFREPWebProvider implements Provider {
         ["feature_flag.event_name"]: trackingEventName,
         ...(context &&
           context.targetingKey && {
-            [ATTR_FEATURE_FLAG_CONTEXT_ID]: context.targetingKey,
+            [TelemetryAttribute.CONTEXT_ID]: context.targetingKey,
           }),
         ...context,
         ...trackingEventDetails,
