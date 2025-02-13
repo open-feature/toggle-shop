@@ -138,7 +138,7 @@ spec:
     spec:
       containers:
         - name: toggle-shop
-          image: ghcr.io/open-feature/toggle-shop:v0.2.3 # x-release-please-version
+          image: ghcr.io/open-feature/toggle-shop:v0.3.0 # x-release-please-version
           ports:
             - containerPort: 3000
               name: app-port

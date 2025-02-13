@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/open-feature/toggle-shop/compare/v0.2.3...v0.3.0) (2025-02-13)
+
+
+### ✨ New Features
+
+* add support for flag metadata, add loading screens ([#21](https://github.com/open-feature/toggle-shop/issues/21)) ([5def1fa](https://github.com/open-feature/toggle-shop/commit/5def1fa80581fbeaed74cd6b01ea21fdae6c4ea5))
+* use offical otel semantics in eval events ([#24](https://github.com/open-feature/toggle-shop/issues/24)) ([9525b72](https://github.com/open-feature/toggle-shop/commit/9525b724b7aa4f6656a39256fe1c8072f175db1f))
+
+
+### 🧹 Chore
+
+* fix rp versioing ([#19](https://github.com/open-feature/toggle-shop/issues/19)) ([742a855](https://github.com/open-feature/toggle-shop/commit/742a855cdc90b3bf4959eda9f60143eed4321926))
+
 ## [0.2.3](https://github.com/open-feature/toggle-shop/compare/v0.2.2...v0.2.3) (2024-11-14)
 
 
