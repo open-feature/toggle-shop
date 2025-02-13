@@ -5,12 +5,9 @@ import {
   OpenFeature,
   Provider,
   TrackingEventDetails,
+  TelemetryAttribute,
 } from "@openfeature/server-sdk";
 import { events } from "@opentelemetry/api-events";
-import {
-  ATTR_FEATURE_FLAG_CONTEXT_ID,
-  EVENT_NAME_FEATURE_FLAG_EVALUATION,
-} from "./libs/open-feature/proposed-attributes";
 import { TelemetryHook } from "./libs/open-feature/telemetry-hook";
 
 console.log("registering the OpenFeature provider");
@@ -25,7 +22,7 @@ class FlagdEventProvider extends FlagdProvider implements Provider {
       ["feature_flag.event_name"]: trackingEventName,
       ...(context &&
         context.targetingKey && {
-          [ATTR_FEATURE_FLAG_CONTEXT_ID]: context.targetingKey,
+          [TelemetryAttribute.CONTEXT_ID]: context.targetingKey,
         }),
       ...context,
       ...trackingEventDetails,
@@ -38,7 +35,7 @@ const eventLogger = events.getEventLogger("feature_flag");
 OpenFeature.addHooks(
   new TelemetryHook((event) => {
     eventLogger.emit({
-      name: EVENT_NAME_FEATURE_FLAG_EVALUATION,
+      name: "feature_flag.evaluation",
       attributes: event,
     });
   })
