@@ -1,5 +1,5 @@
 {
-  "release-type": "simple",
+  "release-type": "node",
   "packages": {
     ".": {
       "monorepo-tags": false,
