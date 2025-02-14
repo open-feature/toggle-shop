@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/open-feature/toggle-shop/compare/v0.3.0...v0.3.1) (2025-02-14)
+
+
+### 🐛 Bug Fixes
+
+* remove suspense flags due to SSG build timeouts ([#25](https://github.com/open-feature/toggle-shop/issues/25)) ([74bc9b6](https://github.com/open-feature/toggle-shop/commit/74bc9b698b2b1aa5838d2127cbf3468651bc4684))
+
 ## [0.3.0](https://github.com/open-feature/toggle-shop/compare/v0.2.3...v0.3.0) (2025-02-13)
 
 
