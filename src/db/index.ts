@@ -12,7 +12,20 @@ const sqlite = new SqliteDb({ products });
 export async function getConnection(flagsClient: Client): Promise<Database> {
   const useDistributed = await flagsClient.getBooleanValue(
     "use-distributed-db",
-    false
+    false,
+    undefined,
+    {
+      hooks: [
+        {
+          finally(hookContext, evaluationDetails) {
+            console.log("useDistributed hook", {
+              hookContext,
+              evaluationDetails,
+            });
+          },
+        },
+      ],
+    }
   );
 
   return useDistributed ? postgres : sqlite;
