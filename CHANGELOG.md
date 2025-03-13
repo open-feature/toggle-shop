@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/open-feature/toggle-shop/compare/v0.3.1...v0.3.2) (2025-03-13)
+
+
+### 🧹 Chore
+
+* improve load gen script ([c7bdc49](https://github.com/open-feature/toggle-shop/commit/c7bdc499665d7267fafef453d8294af783cc8734))
+
 ## [0.3.1](https://github.com/open-feature/toggle-shop/compare/v0.3.0...v0.3.1) (2025-02-14)
 
 
