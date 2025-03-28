@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.2](https://github.com/open-feature/toggle-shop/compare/v0.3.1...v0.3.2) (2025-03-28)
+
+
+### 🐛 Bug Fixes
+
+* include quantity in checkout calculation for tracking ([#29](https://github.com/open-feature/toggle-shop/issues/29)) ([d38a368](https://github.com/open-feature/toggle-shop/commit/d38a3681dde6ff012564f2424586b736c88f067a))
+
+
+### 🧹 Chore
+
+* improve load gen script ([c7bdc49](https://github.com/open-feature/toggle-shop/commit/c7bdc499665d7267fafef453d8294af783cc8734))
+
 ## [0.3.1](https://github.com/open-feature/toggle-shop/compare/v0.3.0...v0.3.1) (2025-02-14)
 
 
