@@ -15,7 +15,7 @@ import { getBaseUrl } from "@/libs/url";
 import { useSize } from "@/hooks/use-size";
 
 class OFREPWebEventProvider extends OFREPWebProvider implements Provider {
-  metadata = { name: "OREFP" };
+  metadata = { name: "OFREP" };
 
   track(
     trackingEventName: string,
