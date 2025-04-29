@@ -60,10 +60,7 @@ export class PostgresDb extends BaseDb implements Database {
     // Use the trace ID to select the node
     const node = Math.abs((traceId || "a").charCodeAt(0)) % 4;
 
-    const useSecureProtocol = await this._featureFlagClient.getBooleanValue(
-      "use-secure-protocol",
-      false
-    );
+    const useSecureProtocol = await this._featureFlagClient.useSecureProtocol();
     const span = this._tracer.startSpan(spanName, {
       kind: SpanKind.CLIENT,
       attributes: {

@@ -1,0 +1,5 @@
+generate:
+  react:
+    output: "./src/generated/react"
+  nodejs:
+    output: "./src/generated/nodejs"

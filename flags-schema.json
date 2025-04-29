@@ -4,7 +4,7 @@
       "$ref": "https://flagd.dev/schema/v0/flags.json"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/open-feature/cli/refs/heads/main/schema/v0/flag_manifest.json"
+      "$ref": "https://raw.githubusercontent.com/open-feature/cli/refs/heads/main/schema/v0/flag-manifest.json"
     }
   ]
 }

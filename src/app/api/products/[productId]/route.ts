@@ -2,8 +2,8 @@
 
 import { NextResponse } from "next/server";
 import { getConnection } from "@/db";
-import { OpenFeature } from "@openfeature/server-sdk";
 import { headerToEvaluationContext } from "@/libs/open-feature/evaluation-context";
+import { getGeneratedClient } from "@/generated/nodejs/openfeature";
 
 export async function GET(
   req: Request,
@@ -11,7 +11,7 @@ export async function GET(
 ) {
   const { productId } = params;
   const pid = Number(productId);
-  const featureFlagClient = OpenFeature.getClient(
+  const featureFlagClient = getGeneratedClient(
     headerToEvaluationContext(req.headers)
   );
   const db = await getConnection(featureFlagClient);

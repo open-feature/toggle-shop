@@ -4,12 +4,12 @@ import Link from "next/link";
 import { ShoppingCart, Menu, X } from "lucide-react";
 import { CSSProperties, useState } from "react";
 import { useCart } from "@/hooks/use-cart";
-import { useStickyHeader } from "@/generated/react-hooks";
+import { useStickyHeader } from "@/generated/react/openfeature";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useCart();
-  const { value: stickyHeader, isAuthoritative } = useStickyHeader({});
+  const { value: stickyHeader, isAuthoritative } = useStickyHeader();
   const headerStyle: CSSProperties =
     stickyHeader && isAuthoritative
       ? { position: "sticky", top: 0, zIndex: 1000 }

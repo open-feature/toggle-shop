@@ -15,7 +15,7 @@ import {
 * - default value: `false`
 * - type: `boolean`
 */
-export const useOfferFreeShipping = (options: ReactFlagEvaluationOptions) => {
+export const useOfferFreeShipping = (options?: ReactFlagEvaluationOptions) => {
   return useFlag("offer-free-shipping", false, options);
 };
 
@@ -30,7 +30,7 @@ export const useOfferFreeShipping = (options: ReactFlagEvaluationOptions) => {
 * Equivalent to useFlag with options: `{ suspend: true }`
 * @experimental — Suspense is an experimental feature subject to change in future versions.
 */
-export const useSuspenseOfferFreeShipping = (options: ReactFlagEvaluationNoSuspenseOptions) => {
+export const useSuspenseOfferFreeShipping = (options?: ReactFlagEvaluationNoSuspenseOptions) => {
   return useSuspenseFlag("offer-free-shipping", false, options);
 };
 
@@ -42,7 +42,7 @@ export const useSuspenseOfferFreeShipping = (options: ReactFlagEvaluationNoSuspe
 * - default value: `false`
 * - type: `boolean`
 */
-export const useStickyHeader = (options: ReactFlagEvaluationOptions) => {
+export const useStickyHeader = (options?: ReactFlagEvaluationOptions) => {
   return useFlag("sticky-header", false, options);
 };
 
@@ -57,7 +57,7 @@ export const useStickyHeader = (options: ReactFlagEvaluationOptions) => {
 * Equivalent to useFlag with options: `{ suspend: true }`
 * @experimental — Suspense is an experimental feature subject to change in future versions.
 */
-export const useSuspenseStickyHeader = (options: ReactFlagEvaluationNoSuspenseOptions) => {
+export const useSuspenseStickyHeader = (options?: ReactFlagEvaluationNoSuspenseOptions) => {
   return useSuspenseFlag("sticky-header", false, options);
 };
 
@@ -69,7 +69,7 @@ export const useSuspenseStickyHeader = (options: ReactFlagEvaluationNoSuspenseOp
 * - default value: `false`
 * - type: `boolean`
 */
-export const useUseDistributedDb = (options: ReactFlagEvaluationOptions) => {
+export const useUseDistributedDb = (options?: ReactFlagEvaluationOptions) => {
   return useFlag("use-distributed-db", false, options);
 };
 
@@ -84,7 +84,7 @@ export const useUseDistributedDb = (options: ReactFlagEvaluationOptions) => {
 * Equivalent to useFlag with options: `{ suspend: true }`
 * @experimental — Suspense is an experimental feature subject to change in future versions.
 */
-export const useSuspenseUseDistributedDb = (options: ReactFlagEvaluationNoSuspenseOptions) => {
+export const useSuspenseUseDistributedDb = (options?: ReactFlagEvaluationNoSuspenseOptions) => {
   return useSuspenseFlag("use-distributed-db", false, options);
 };
 
@@ -96,7 +96,7 @@ export const useSuspenseUseDistributedDb = (options: ReactFlagEvaluationNoSuspen
 * - default value: `false`
 * - type: `boolean`
 */
-export const useUseSecureProtocol = (options: ReactFlagEvaluationOptions) => {
+export const useUseSecureProtocol = (options?: ReactFlagEvaluationOptions) => {
   return useFlag("use-secure-protocol", false, options);
 };
 
@@ -111,6 +111,6 @@ export const useUseSecureProtocol = (options: ReactFlagEvaluationOptions) => {
 * Equivalent to useFlag with options: `{ suspend: true }`
 * @experimental — Suspense is an experimental feature subject to change in future versions.
 */
-export const useSuspenseUseSecureProtocol = (options: ReactFlagEvaluationNoSuspenseOptions) => {
+export const useSuspenseUseSecureProtocol = (options?: ReactFlagEvaluationNoSuspenseOptions) => {
   return useSuspenseFlag("use-secure-protocol", false, options);
 };
