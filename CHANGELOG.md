@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/open-feature/toggle-shop/compare/v0.3.2...v0.4.0) (2025-04-29)
+
+
+### ✨ New Features
+
+* add selenium IDE project file for user simulation & add docs ([#30](https://github.com/open-feature/toggle-shop/issues/30)) ([1df3646](https://github.com/open-feature/toggle-shop/commit/1df3646490efd29ac30f0c876769feb9bc290d41))
+
+
+### 🧹 Chore
+
+* add generated React hooks and Node client ([#22](https://github.com/open-feature/toggle-shop/issues/22)) ([6a8a0e2](https://github.com/open-feature/toggle-shop/commit/6a8a0e25b5a5afe87b24b936721b358755737949))
+
 ## [0.3.2](https://github.com/open-feature/toggle-shop/compare/v0.3.1...v0.3.2) (2025-03-28)
 
 
