@@ -1,5 +1,37 @@
 # Changelog
 
+## [0.3.2](https://github.com/open-feature/toggle-shop/compare/v0.3.1...v0.3.2) (2025-03-28)
+
+
+### 🐛 Bug Fixes
+
+* include quantity in checkout calculation for tracking ([#29](https://github.com/open-feature/toggle-shop/issues/29)) ([d38a368](https://github.com/open-feature/toggle-shop/commit/d38a3681dde6ff012564f2424586b736c88f067a))
+
+
+### 🧹 Chore
+
+* improve load gen script ([c7bdc49](https://github.com/open-feature/toggle-shop/commit/c7bdc499665d7267fafef453d8294af783cc8734))
+
+## [0.3.1](https://github.com/open-feature/toggle-shop/compare/v0.3.0...v0.3.1) (2025-02-14)
+
+
+### 🐛 Bug Fixes
+
+* remove suspense flags due to SSG build timeouts ([#25](https://github.com/open-feature/toggle-shop/issues/25)) ([74bc9b6](https://github.com/open-feature/toggle-shop/commit/74bc9b698b2b1aa5838d2127cbf3468651bc4684))
+
+## [0.3.0](https://github.com/open-feature/toggle-shop/compare/v0.2.3...v0.3.0) (2025-02-13)
+
+
+### ✨ New Features
+
+* add support for flag metadata, add loading screens ([#21](https://github.com/open-feature/toggle-shop/issues/21)) ([5def1fa](https://github.com/open-feature/toggle-shop/commit/5def1fa80581fbeaed74cd6b01ea21fdae6c4ea5))
+* use offical otel semantics in eval events ([#24](https://github.com/open-feature/toggle-shop/issues/24)) ([9525b72](https://github.com/open-feature/toggle-shop/commit/9525b724b7aa4f6656a39256fe1c8072f175db1f))
+
+
+### 🧹 Chore
+
+* fix rp versioing ([#19](https://github.com/open-feature/toggle-shop/issues/19)) ([742a855](https://github.com/open-feature/toggle-shop/commit/742a855cdc90b3bf4959eda9f60143eed4321926))
+
 ## [0.2.3](https://github.com/open-feature/toggle-shop/compare/v0.2.2...v0.2.3) (2024-11-14)
 
 
