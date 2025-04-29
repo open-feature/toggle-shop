@@ -37,7 +37,9 @@ ToggleShop leverages a number of feature flags for various technical and busines
 The `offer-free-shipping` flag controls a banner on the landing page that teases free shipping on orders over $50.
 The flag is also used on the checkout page to calculate the total cost.
 The purpose of this flag is to demo using a client-side feature flag with the React SDK.
-It's also pairs nicely with the event tracking to calculate the business impact.
+It also pairs nicely with the event tracking to calculate the business impact.
+
+Use the [Selenium IDE project](./selenium/toggle-shop-user-simulation-selenium-ide.side) to simulate user purchases for telemetry data analysis demo purposes.
 
 ### Distributed DB
 
