@@ -10,11 +10,11 @@ import Banner from "@/components/Banner";
 import heroImage from "../../public/img/hero.jpg";
 
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useFlag } from "@openfeature/react-sdk";
+import { useSuspenseOfferFreeShipping } from "@/generated/react/openfeature";
 
 export default function Home() {
   const [parent] = useAutoAnimate();
-  const { value: showBanner } = useFlag("offer-free-shipping", false);
+  const { value: showBanner } = useSuspenseOfferFreeShipping();
 
   return (
     <>

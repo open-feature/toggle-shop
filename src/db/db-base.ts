@@ -1,4 +1,4 @@
-import { OpenFeature } from "@openfeature/server-sdk";
+import { getGeneratedClient } from "@/generated/nodejs/openfeature";
 import { Database } from "./types";
 import type { Product } from "@/types/product";
 
@@ -8,7 +8,7 @@ import type { Product } from "@/types/product";
  */
 export abstract class BaseDb implements Database {
   protected _data = new Map<string, Map<number, Product>>();
-  protected _featureFlagClient = OpenFeature.getClient();
+  protected _featureFlagClient = getGeneratedClient();
 
   constructor(seedData: { products: Product[] }) {
     for (const table of Object.getOwnPropertyNames(seedData)) {
