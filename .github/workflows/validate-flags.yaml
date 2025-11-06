@@ -1,7 +1,7 @@
 name: "Validate Flags"
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - synchronize
@@ -22,19 +22,14 @@ jobs:
         with:
           fetch-depth: 0 # Required for git branch comparison
 
+      # Automatically compares against PR base branch (main)
       - name: Compare against base branch
         uses: open-feature/action@v0.0.2
         with:
           manifest: "flags.json"
-          # Automatically compares against PR base branch (main)
-      - name: Check FLAGD_STUDIO_TOKEN secret
-        run: |
-          if [ -z "${{ secrets.FLAGD_STUDIO_TOKEN }}" ]; then
-            echo "ERROR: FLAGD_STUDIO_TOKEN is not set. Remote manifest comparison cannot run."
-            exit 1
-          fi
 
       - name: Compare against remote manifest
+        if: ${{ secrets.FLAGD_STUDIO_TOKEN != '' }} # Secret not accessible for PRs from forks
         uses: open-feature/action@v0.0.2
         with:
           manifest: "flags.json"
