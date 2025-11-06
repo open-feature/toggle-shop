@@ -1,0 +1,42 @@
+name: "Validate Flags"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate-flags:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for git branch comparison
+
+      - name: Compare against base branch
+        uses: open-feature/action@v0.0.2
+        with:
+          manifest: "flags.json"
+          # Automatically compares against PR base branch (main)
+      - name: Check FLAGD_STUDIO_TOKEN secret
+        run: |
+          if [ -z "${{ secrets.FLAGD_STUDIO_TOKEN }}" ]; then
+            echo "ERROR: FLAGD_STUDIO_TOKEN is not set. Remote manifest comparison cannot run."
+            exit 1
+          fi
+
+      - name: Compare against remote manifest
+        uses: open-feature/action@v0.0.2
+        with:
+          manifest: "flags.json"
+          against: "https://flagd-studio.onrender.com/api"
+          auth-token: ${{ secrets.FLAGD_STUDIO_TOKEN }}
