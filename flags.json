@@ -1,8 +1,8 @@
 {
   "$schema": "./flags-schema.json",
   "flags": {
-    "offer-free-shipping": {
-      "description": "Add free shipping to the UI.",
+    "free-shipping-banner": {
+      "description": "Controls the free shipping banner on the website. SHOP-4287",
       "defaultValue": false,
       "flagType": "boolean",
       "state": "ENABLED",
