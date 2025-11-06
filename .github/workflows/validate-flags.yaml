@@ -30,7 +30,8 @@ jobs:
       - name: Check FLAGD_STUDIO_TOKEN secret
         run: |
           if [ -z "${{ secrets.FLAGD_STUDIO_TOKEN }}" ]; then
-            echo "WARNING: FLAGD_STUDIO_TOKEN is not set. Remote manifest comparison may fail."
+            echo "ERROR: FLAGD_STUDIO_TOKEN is not set. Remote manifest comparison cannot run."
+            exit 1
           fi
 
       - name: Compare against remote manifest
