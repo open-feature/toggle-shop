@@ -1,6 +1,6 @@
 "use client";
 
-import { useSuspenseOfferFreeShipping } from "@/generated/react/openfeature";
+import { useSuspenseFreeShippingBanner } from "@/generated/react/openfeature";
 import { useCart } from "@/hooks/use-cart";
 import { setTargetingKeyHeader } from "@/libs/open-feature/evaluation-context";
 import { TARGETING_KEY } from "@/libs/targeting-key";
@@ -15,7 +15,7 @@ import { useMemo, useReducer } from "react";
 export default function Checkout() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const { track } = useTrack();
-  const { value: freeShipping } = useSuspenseOfferFreeShipping();
+  const { value: freeShipping } = useSuspenseFreeShippingBanner();
 
   useMemo(() => {
     track("visit_checkout");

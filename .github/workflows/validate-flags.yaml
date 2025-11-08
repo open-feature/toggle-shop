@@ -24,14 +24,22 @@ jobs:
 
       # Automatically compares against PR base branch (main)
       - name: Compare against base branch
-        uses: open-feature/action@v0.0.2
+        uses: open-feature/action@v0.0.6
         with:
           manifest: "flags.json"
+          post-pr-comment: false
+
+      - name: debugging
+        run: cat flags.json && cat against-flags.json
 
       - name: Compare against remote manifest
-        if: ${{ secrets.FLAGD_STUDIO_TOKEN != '' }} # Secret not accessible for PRs from forks
-        uses: open-feature/action@v0.0.2
+      # Secret not accessible for PRs from forks
+        if: github.repository == github.event.repository.full_name
+        uses: open-feature/action@v0.0.6
         with:
           manifest: "flags.json"
           against: "https://flagd-studio.onrender.com/api"
           auth-token: ${{ secrets.FLAGD_STUDIO_TOKEN }}
+
+      - name: debugging
+        run: cat flags.json && cat against-flags.json

@@ -1,68 +1,30 @@
 {
-  "$schema": "./flags-schema.json",
+  "$schema": "https://raw.githubusercontent.com/open-feature/cli/refs/heads/main/schema/v0/flag-manifest.json",
   "flags": {
-    "offer-free-shipping": {
-      "description": "Add free shipping to the UI.",
-      "defaultValue": false,
+    "free-shipping-banner": {
       "flagType": "boolean",
-      "state": "ENABLED",
-      "variants": {
-        "on": true,
-        "off": false
-      },
-      "defaultVariant": "on"
+      "description": "Controls the free shipping banner on the website. SHOP-4287",
+      "defaultValue": false
+    },
+    "offer-free-shipping": {
+      "flagType": "boolean",
+      "description": "Add free shipping to the UI.",
+      "defaultValue": false
     },
     "sticky-header": {
-      "description": "Make the header stay at the top of the page while scrolling.",
-      "state": "ENABLED",
       "flagType": "boolean",
-      "variants": {
-        "on": true,
-        "off": false
-      },
-      "defaultValue": false,
-      "targeting": {
-        "if": [{ "==": [{ "var": "size" }, "sm"]}, "on", null ]
-      },
-      "defaultVariant": "on"
+      "description": "Make the header stay at the top of the page while scrolling.",
+      "defaultValue": false
     },
     "use-distributed-db": {
+      "defaultValue": true,
       "description": "When on, use postgres else sqlite.",
-      "state": "ENABLED",
-      "flagType": "boolean",
-      "defaultValue": false,
-      "variants": {
-        "on": true,
-        "off": false
-      },
-      "targeting": {
-        "fractional": [
-          [
-            "on",
-            1
-          ],
-          [
-            "off",
-            3
-          ]
-        ]
-      },
-      "defaultVariant": "off"
+      "flagType": "boolean"
     },
     "use-secure-protocol": {
-      "description": "When on, use a secure connection to the database. This only applies when use-distributed-db is on.",
-      "state": "ENABLED",
-      "flagType": "boolean",
       "defaultValue": false,
-      "variants": {
-        "on": true,
-        "off": false
-      },
-      "defaultVariant": "off"
+      "description": "When on, use a secure connection to the database. This only applies when use-distributed-db is on.",
+      "flagType": "boolean"
     }
-  },
-  "metadata": {
-    "flagSetId": "toggle-shop/dev",
-    "version": "1"
   }
 }
