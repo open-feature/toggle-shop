@@ -1,12 +1,18 @@
 "use client";
 
+import { use } from "react";
 import Image from "next/image";
 import { useCart } from "@/hooks/use-cart";
 import { useProduct } from "@/hooks/use-products";
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = use(params);
   const { addToCart } = useCart();
-  const product = useProduct(params.id);
+  const product = useProduct(id);
 
   if (!product) {
     return <div>Product not found</div>;
