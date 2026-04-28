@@ -7,9 +7,9 @@ import { getGeneratedClient } from "@/generated/nodejs/openfeature";
 
 export async function GET(
   req: Request,
-  { params }: { params: { productId: string } }
+  { params }: { params: Promise<{ productId: string }> }
 ) {
-  const { productId } = params;
+  const { productId } = await params;
   const pid = Number(productId);
   const featureFlagClient = getGeneratedClient(
     headerToEvaluationContext(req.headers)
