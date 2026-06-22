@@ -53,8 +53,8 @@ export function register() {
     registerOTel({
       serviceName: "toggle-shop",
       traceExporter,
-      metricReader,
-      logRecordProcessor,
+      metricReaders: metricReader ? [metricReader] : undefined,
+      logRecordProcessors: logRecordProcessor ? [logRecordProcessor] : undefined,
     });
 
     console.log("setting global log provider");

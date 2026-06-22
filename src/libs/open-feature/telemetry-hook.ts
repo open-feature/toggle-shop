@@ -1,4 +1,5 @@
 import type {
+  AttributeValue,
   BaseHook,
   EvaluationDetails,
   FlagValue,
@@ -10,7 +11,7 @@ import { createEvaluationEvent } from "@openfeature/core";
 export class TelemetryHook implements BaseHook {
   constructor(
     private readonly sendEvent: (
-      event: Record<string, string | number | boolean>
+      event: Record<string, AttributeValue | undefined>
     ) => void
   ) {}
 
