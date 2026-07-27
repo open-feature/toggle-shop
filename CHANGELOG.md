@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.4.0](https://github.com/open-feature/toggle-shop/compare/v0.3.2...v0.4.0) (2026-07-27)
+
+
+### 🐛 Bug Fixes
+
+* resolve open Dependabot security alerts ([#38](https://github.com/open-feature/toggle-shop/issues/38)) ([42f2785](https://github.com/open-feature/toggle-shop/commit/42f2785f7d3d6fb5503be0302b65945b5734b467))
+
+
+### ✨ New Features
+
+* add selenium IDE project file for user simulation & add docs ([#30](https://github.com/open-feature/toggle-shop/issues/30)) ([1df3646](https://github.com/open-feature/toggle-shop/commit/1df3646490efd29ac30f0c876769feb9bc290d41))
+* adds flag validation workflow ([#33](https://github.com/open-feature/toggle-shop/issues/33)) ([147e84b](https://github.com/open-feature/toggle-shop/commit/147e84bbb94b366eac488bf3e5ca88237a2a4c05))
+
+
+### 🧹 Chore
+
+* add generated React hooks and Node client ([#22](https://github.com/open-feature/toggle-shop/issues/22)) ([6a8a0e2](https://github.com/open-feature/toggle-shop/commit/6a8a0e25b5a5afe87b24b936721b358755737949))
+* resolve open dependabot security alerts ([#40](https://github.com/open-feature/toggle-shop/issues/40)) ([6322f81](https://github.com/open-feature/toggle-shop/commit/6322f813ef0161cb0c5336244c1159fcfc9c8db9))
+
 ## [0.3.2](https://github.com/open-feature/toggle-shop/compare/v0.3.1...v0.3.2) (2025-03-28)
 
 
