@@ -45,7 +45,7 @@
     "diff": "^5.2.0",
     "yaml": "^2.8.3",
     "postcss": "$postcss",
-    "fast-uri": ">=3.1.4 <4",
+    "fast-uri": ">=3.1.5 <4",
     "sharp": "$sharp",
     "brace-expansion": ">=1.1.16 <2",
     "@opentelemetry/core": "^2.8.0",
