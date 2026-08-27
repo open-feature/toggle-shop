@@ -49,7 +49,8 @@
     "sharp": "$sharp",
     "brace-expansion": ">=1.1.16 <2",
     "@opentelemetry/core": "^2.8.0",
-    "@opentelemetry/resources": "^2.8.0"
+    "@opentelemetry/resources": "^2.8.0",
+    "nanoid": ">=3.3.18 <4"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.74.7",
