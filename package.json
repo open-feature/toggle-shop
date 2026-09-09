@@ -1,6 +1,6 @@
 {
   "name": "toggle-shop",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "cross-env FLAGD_OFFLINE_FLAG_SOURCE_PATH=./flags.json next dev",
