@@ -3,12 +3,25 @@ import {
   OpenFeature,
   stringOrUndefined,
   objectOrUndefined,
+  JsonValue,
 } from "@openfeature/server-sdk";
 import type {
   EvaluationContext,
   EvaluationDetails,
   FlagEvaluationOptions,
 } from "@openfeature/server-sdk";
+
+// Flag key constants for programmatic access
+export const FlagKeys = {
+  /** Flag key for Add free shipping to the UI. */
+  OFFER_FREE_SHIPPING: "offer-free-shipping",
+  /** Flag key for Make the header stay at the top of the page while scrolling. */
+  STICKY_HEADER: "sticky-header",
+  /** Flag key for When on, use postgres else sqlite. */
+  USE_DISTRIBUTED_DB: "use-distributed-db",
+  /** Flag key for When on, use a secure connection to the database. This only applies when use-distributed-db is on. */
+  USE_SECURE_PROTOCOL: "use-secure-protocol",
+} as const;
 
 export interface GeneratedClient {
   /**

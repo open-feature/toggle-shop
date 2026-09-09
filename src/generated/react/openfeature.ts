@@ -3,9 +3,24 @@
 import {
   type ReactFlagEvaluationOptions,
   type ReactFlagEvaluationNoSuspenseOptions,
+  type FlagQuery,
   useFlag,
   useSuspenseFlag,
+  JsonValue
 } from "@openfeature/react-sdk";
+
+// Flag key constants for programmatic access
+export const FlagKeys = {
+  /** Flag key for Add free shipping to the UI. */
+  OFFER_FREE_SHIPPING: "offer-free-shipping",
+  /** Flag key for Make the header stay at the top of the page while scrolling. */
+  STICKY_HEADER: "sticky-header",
+  /** Flag key for When on, use postgres else sqlite. */
+  USE_DISTRIBUTED_DB: "use-distributed-db",
+  /** Flag key for When on, use a secure connection to the database. This only applies when use-distributed-db is on. */
+  USE_SECURE_PROTOCOL: "use-secure-protocol",
+} as const;
+
 
 /**
 * Add free shipping to the UI.
@@ -15,7 +30,7 @@ import {
 * - default value: `false`
 * - type: `boolean`
 */
-export const useOfferFreeShipping = (options?: ReactFlagEvaluationOptions) => {
+export const useOfferFreeShipping = (options?: ReactFlagEvaluationOptions): FlagQuery<boolean> => {
   return useFlag("offer-free-shipping", false, options);
 };
 
@@ -30,7 +45,7 @@ export const useOfferFreeShipping = (options?: ReactFlagEvaluationOptions) => {
 * Equivalent to useFlag with options: `{ suspend: true }`
 * @experimental — Suspense is an experimental feature subject to change in future versions.
 */
-export const useSuspenseOfferFreeShipping = (options?: ReactFlagEvaluationNoSuspenseOptions) => {
+export const useSuspenseOfferFreeShipping = (options?: ReactFlagEvaluationNoSuspenseOptions): FlagQuery<boolean> => {
   return useSuspenseFlag("offer-free-shipping", false, options);
 };
 
@@ -42,7 +57,7 @@ export const useSuspenseOfferFreeShipping = (options?: ReactFlagEvaluationNoSusp
 * - default value: `false`
 * - type: `boolean`
 */
-export const useStickyHeader = (options?: ReactFlagEvaluationOptions) => {
+export const useStickyHeader = (options?: ReactFlagEvaluationOptions): FlagQuery<boolean> => {
   return useFlag("sticky-header", false, options);
 };
 
@@ -57,7 +72,7 @@ export const useStickyHeader = (options?: ReactFlagEvaluationOptions) => {
 * Equivalent to useFlag with options: `{ suspend: true }`
 * @experimental — Suspense is an experimental feature subject to change in future versions.
 */
-export const useSuspenseStickyHeader = (options?: ReactFlagEvaluationNoSuspenseOptions) => {
+export const useSuspenseStickyHeader = (options?: ReactFlagEvaluationNoSuspenseOptions): FlagQuery<boolean> => {
   return useSuspenseFlag("sticky-header", false, options);
 };
 
@@ -69,7 +84,7 @@ export const useSuspenseStickyHeader = (options?: ReactFlagEvaluationNoSuspenseO
 * - default value: `false`
 * - type: `boolean`
 */
-export const useUseDistributedDb = (options?: ReactFlagEvaluationOptions) => {
+export const useUseDistributedDb = (options?: ReactFlagEvaluationOptions): FlagQuery<boolean> => {
   return useFlag("use-distributed-db", false, options);
 };
 
@@ -84,7 +99,7 @@ export const useUseDistributedDb = (options?: ReactFlagEvaluationOptions) => {
 * Equivalent to useFlag with options: `{ suspend: true }`
 * @experimental — Suspense is an experimental feature subject to change in future versions.
 */
-export const useSuspenseUseDistributedDb = (options?: ReactFlagEvaluationNoSuspenseOptions) => {
+export const useSuspenseUseDistributedDb = (options?: ReactFlagEvaluationNoSuspenseOptions): FlagQuery<boolean> => {
   return useSuspenseFlag("use-distributed-db", false, options);
 };
 
@@ -96,7 +111,7 @@ export const useSuspenseUseDistributedDb = (options?: ReactFlagEvaluationNoSuspe
 * - default value: `false`
 * - type: `boolean`
 */
-export const useUseSecureProtocol = (options?: ReactFlagEvaluationOptions) => {
+export const useUseSecureProtocol = (options?: ReactFlagEvaluationOptions): FlagQuery<boolean> => {
   return useFlag("use-secure-protocol", false, options);
 };
 
@@ -111,6 +126,6 @@ export const useUseSecureProtocol = (options?: ReactFlagEvaluationOptions) => {
 * Equivalent to useFlag with options: `{ suspend: true }`
 * @experimental — Suspense is an experimental feature subject to change in future versions.
 */
-export const useSuspenseUseSecureProtocol = (options?: ReactFlagEvaluationNoSuspenseOptions) => {
+export const useSuspenseUseSecureProtocol = (options?: ReactFlagEvaluationNoSuspenseOptions): FlagQuery<boolean> => {
   return useSuspenseFlag("use-secure-protocol", false, options);
 };

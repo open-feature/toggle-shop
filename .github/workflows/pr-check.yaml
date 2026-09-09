@@ -17,13 +17,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+      - name: Setup mise
+        uses: jdx/mise-action@v2
 
-      - name: Restore cache
+      - name: Cache npm packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
+
+      - name: Restore Next.js cache
         uses: actions/cache@v4
         with:
           path: .next/cache
@@ -46,3 +50,32 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
+
+  check-generated:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup mise
+        uses: jdx/mise-action@v2
+
+      - name: Cache npm packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regenerate hooks
+        run: npm run generate-flags
+
+      - name: Check for uncommitted changes
+        run: |
+          if ! git diff --exit-code src/generated; then
+            echo "Generated files are out of date. Run 'npm run generate-flags' and commit the result."
+            exit 1
+          fi

@@ -1,0 +1,4 @@
+[tools]
+node = "20"
+"github:open-feature/cli" = "0.4.1"
+

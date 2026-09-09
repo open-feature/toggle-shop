@@ -113,3 +113,7 @@ Deploy the ToggleShop and supporting infrastructure:
 ```sh
 kubectl -n default apply -f kubernetes/toggle-shop.yaml && kubectl wait --timeout=60s deployment --for condition=Available=True -l 'app=toggle-shop' -n 'default'
 ```
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for dev setup, how to regenerate flag hooks, and DCO sign-off requirements.
